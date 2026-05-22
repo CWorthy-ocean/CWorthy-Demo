@@ -1,0 +1,225 @@
+# Regional ocean grids for Eastern Boundary Upwelling Systems (EBUS),
+# marginal seas, and basin-scale current systems.
+# All grids use ETOPO5 built-in topography.  Resolution: ~10 km (nx = size_x/10).
+#
+# Rotation convention (rot): angle of grid x-axis CCW from east.
+# y-axis = rot + 90°.  For the elongated y-axis to follow a coast trending
+# X degrees WEST of north → rot = +X; trending X degrees EAST of north → rot = -X.
+# Examples: NNW (20° W of N) coast → rot=+20; NE (45° E of N) coast → rot=-45.
+
+# ── Eastern Boundary Upwelling Systems ──────────────────────────────────────
+
+- name: "California Current & Gulf of Alaska"
+  # Baja tip (~22 N, 110 W) to Kodiak (~57 N, 152 W); overall coast trends ~40° W of N.
+  # rot=+40 aligns y-axis with the NNW→W sweep from California to the Gulf of Alaska.
+  # center_lon shifted east to -132 W so the +x (ENE, shoreward) edge covers the coast.
+  # size_x 2000 km places the eastern edge ~120 W, capturing Baja through SE Alaska coast.
+  # size_y extended to 5500 km, center_lat lowered to 40 N to include the full Baja tip.
+  nx: 200
+  ny: 550
+  size_x: 2000
+  size_y: 5500
+  center_lon: -132.0
+  center_lat: 40.0
+  rot: 40
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Humboldt Current"
+  # Central American coast (~12 N) to Tierra del Fuego (~56 S); full W coast of S. America.
+  # center_lat raised to -22 S so north end reaches ~12 N (Central America).
+  # size_x 2000 km: center_lon -79 W places eastern edge ~-69 W (covers entire coast including
+  # Tierra del Fuego at 68-72 W), western edge ~-89 W (+500 km ocean vs. prior extent).
+  nx: 200
+  ny: 750
+  size_x: 2000
+  size_y: 7500
+  center_lon: -79.0
+  center_lat: -22.0
+  rot: 9
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Benguela Current"
+  # Cape of Good Hope (~35 S) to Angola (~12 S); coast trends ~12° W of N.
+  # center_lon raised to 12 E and size_x doubled: eastern edge now reaches ~22 E,
+  # covering the Western Cape coast at 18-20 E; western edge at ~2 E (S. Atlantic ocean).
+  nx: 200
+  ny: 280
+  size_x: 2000
+  size_y: 2800
+  center_lon: 12.0
+  center_lat: -26.0
+  rot: 12
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Canary Current"
+  # Senegal (~15 N) to Iberian Peninsula (~42 N); coast trends ~20° E of N (NNE).
+  # center_lon shifted to -18 W and size_x doubled: eastern edge now reaches ~-8 W,
+  # covering the full Moroccan Atlantic coast; center_lat raised to 28 N to center
+  # the domain between Senegal (15 N) and Gibraltar (36 N).
+  nx: 200
+  ny: 320
+  size_x: 2000
+  size_y: 3200
+  center_lon: -18.0
+  center_lat: 28.0
+  rot: -20
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Western Australia"
+  # Great Australian Bight (~35 S) to NW Shelf (~15 S); coast trends ~12° W of N (NNW).
+  nx: 100
+  ny: 280
+  size_x: 1000
+  size_y: 2800
+  center_lon: 111.0
+  center_lat: -25.0
+  rot: 12
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+# ── Boundary Currents & Marginal Seas ────────────────────────────────────────
+
+- name: "Western Atlantic"
+  # US East Coast + Gulf of Mexico; rot=-30 is a compromise between the NE-trending
+  # East Coast (~45° E of N) and the roughly E-W Gulf of Mexico coast.
+  # size_y extended +500 km north; size_x extended +500 km into the Atlantic (SE);
+  # center shifted to (31 N, 77 W) to maintain Gulf/SW coverage while adding north/east.
+  nx: 400
+  ny: 550
+  size_x: 4000
+  size_y: 5500
+  center_lon: -77.0
+  center_lat: 31.0
+  rot: -30
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Kuroshio"
+  # SW Japan (~25 N, 130 E) to Hokkaido (~46 N, 145 E); coast trends ~45° E of N.
+  # size_x doubled to 3000 km: the NW (-x) edge now reaches ~135 E at the center
+  # latitude, covering the full Pacific coast of Japan and the Inland Sea/western Honshu.
+  # Center kept at 147 E to maintain Kuroshio Extension coverage into the NW Pacific.
+  nx: 300
+  ny: 350
+  size_x: 3000
+  size_y: 3500
+  center_lon: 147.0
+  center_lat: 35.0
+  rot: -45
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Gulf of Guinea"
+  # Equatorial W-African upwelling; Guinea Current and Benguela upwelling source
+  nx: 300
+  ny: 180
+  size_x: 3000
+  size_y: 1800
+  center_lon: 3.0
+  center_lat: 2.0
+  rot: 0
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Arabian Sea"
+  # NW Indian Ocean; Somali Jet upwelling and SW monsoon circulation
+  nx: 300
+  ny: 280
+  size_x: 3000
+  size_y: 2800
+  center_lon: 63.0
+  center_lat: 16.0
+  rot: 0
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Mediterranean"
+  # Full Mediterranean basin, Strait of Gibraltar to Levantine basin.
+  # Slight positive rot captures the basin's gentle ENE tilt.
+  nx: 500
+  ny: 160
+  size_x: 5000
+  size_y: 1600
+  center_lon: 18.0
+  center_lat: 37.0
+  rot: 10
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Northern Europe"
+  # English Channel (~50 N) to Norwegian Sea (~72 N); North Sea and Norwegian coast.
+  # Covers ~20 W to 30 E at 61 N.
+  nx: 280
+  ny: 300
+  size_x: 2800
+  size_y: 3000
+  center_lon: 5.0
+  center_lat: 61.0
+  rot: 0
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
+
+- name: "Oceania"
+  # Maritime Continent + western Oceania: Sumatra to Melanesia (~95 E to 160 E),
+  # Philippines to northern Australia (~15 S to 20 N).
+  nx: 650
+  ny: 400
+  size_x: 6500
+  size_y: 4000
+  center_lon: 128.0
+  center_lat: 3.0
+  rot: 0
+  N: 30
+  theta_s: 5.0
+  theta_b: 2.0
+  hc: 250.0
+  topography_source:
+    name: ETOPO5
