@@ -1,0 +1,25 @@
+description: "Pacific Outer 12km (nested)"
+model_name: "cson_roms-marbl_v0.1"
+grid_name: "PAC_Outer_12km"
+start_time: "2012-01-01"
+end_time: "2012-12-31"
+grid_kwargs:
+  nx: 1840
+  ny: 960
+  size_x: 23000
+  size_y: 12000
+  center_lon: -161
+  center_lat: 14.4
+  rot: -3
+  N: 100
+  theta_s: 6.0
+  theta_b: 6.0
+  hc: 250.0
+open_boundaries:
+  south: true
+  east: false
+  north: true
+  west: true
+partitioning:
+  n_procs_x: 16
+  n_procs_y: 16

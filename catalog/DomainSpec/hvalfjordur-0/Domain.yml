@@ -1,0 +1,23 @@
+description: "Hvalfjörður, Iceland"
+model_name: "cson_roms-marbl_v0.1"
+grid_name: "hvalfjordur-0"
+start_time: “2024-01-05"
+end_time: “2024-12-01”
+grid_kwargs:
+  nx: 512
+  ny: 512
+  size_x: 1280
+  size_y: 1280
+  center_lon: -25
+  center_lat: 63
+  rot: -20
+  N: 100
+  verbose: true
+open_boundaries:
+  south: true
+  east: true
+  north: true
+  west: true
+partitioning:
+  n_procs_x: 256
+  n_procs_y: 256

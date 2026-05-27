@@ -1,0 +1,25 @@
+description: "GulfOfAlaska_Demo"
+model_name: "cson_roms-marbl_v0.1"
+grid_name: "Gulf_of_Alaska_sm"
+start_time: "2010-01-01"
+end_time: "2010-01-31"
+grid_kwargs:
+  nx: 160
+  ny: 80
+  size_x: 1460
+  size_y: 700
+  center_lon: -150.0
+  center_lat: 57.5
+  rot: 41
+  N: 10
+  theta_s: 6.0         # surface control parameter
+  theta_b: 3.0         # bottom control parameter
+  hc: 250.0            # critical depth
+open_boundaries:
+  south: true
+  east: true
+  north: true
+  west: true
+partitioning:
+  n_procs_x: 2
+  n_procs_y: 2
