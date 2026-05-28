@@ -8,7 +8,9 @@
       "Bash(python -m pytest tests/ -q)",
       "Bash(python -m pytest tests/ -m \"not network\" -q)",
       "Bash(python -m pytest tests/test_domain_catalog_github.py -m network -v)",
-      "Bash(python -m pytest tests/test_domain_catalog_github.py -m network -q)"
+      "Bash(python -m pytest tests/test_domain_catalog_github.py -m network -q)",
+      "Bash(python -m pytest -m \"not network\" -q)",
+      "Bash(python -c \"import inspect; from fsspec.implementations.github import GithubFileSystem; print\\(inspect.signature\\(GithubFileSystem.__init__\\)\\)\")"
     ]
   }
 }
