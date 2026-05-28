@@ -5,7 +5,10 @@
       "Bash(python -m pytest tests/test_core.py -x -q)",
       "Bash(python -m pytest tests/ -x -q)",
       "Bash(python -m pytest tests/test_models_comprehensive.py::TestSettingsStage::test_settingsstage_template_variable_resolution -x -q)",
-      "Bash(python -m pytest tests/ -q)"
+      "Bash(python -m pytest tests/ -q)",
+      "Bash(python -m pytest tests/ -m \"not network\" -q)",
+      "Bash(python -m pytest tests/test_domain_catalog_github.py -m network -v)",
+      "Bash(python -m pytest tests/test_domain_catalog_github.py -m network -q)"
     ]
   }
 }
